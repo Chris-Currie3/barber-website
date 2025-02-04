@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Admin password protection
     const adminPassword = "admin123"; // Set a simple password here
-    const enteredPassword = prompt("Enter Admin Password:");
+    const enteredPassword = prompt("Enter Admin password, if not admin press cancell.");
 
     const adminPanel = document.querySelector('.admin-panel');
     const appointmentList = document.querySelector('.appointments');
