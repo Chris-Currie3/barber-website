@@ -61,7 +61,7 @@ function saveAvailableSlot(slot) {
     slots.push(slot);
     localStorage.setItem('availableSlots', JSON.stringify(slots));
 }
-
+alert("Hiiiiii");
 // Function to save appointment
 function saveAppointment(appointment) {
     let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
