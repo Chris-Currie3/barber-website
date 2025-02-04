@@ -60,15 +60,25 @@ function saveAvailableSlot(slot) {
     let slots = JSON.parse(localStorage.getItem('availableSlots')) || [];
     slots.push(slot);
     localStorage.setItem('availableSlots', JSON.stringify(slots));
+    loadAvailableSlots(); // Refresh the list of available slots
 }
+
 
 // Function to save appointment
 function saveAppointment(appointment) {
     let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
     appointments.push(appointment);
     localStorage.setItem('appointments', JSON.stringify(appointments));
-    loadBookedAppointments(); // Refresh the list after saving
+
+    // Remove the booked time slot from available slots
+    let slots = JSON.parse(localStorage.getItem('availableSlots')) || [];
+    slots = slots.filter(slot => !(slot.day === appointment.date && slot.time === appointment.time));
+    localStorage.setItem('availableSlots', JSON.stringify(slots));
+
+    loadBookedAppointments(); // Refresh the list of booked appointments
+    loadAvailableSlots(); // Refresh available slots in the booking form
 }
+
 
 // Function to load and display booked appointments
 function loadBookedAppointments() {
@@ -82,3 +92,24 @@ function loadBookedAppointments() {
         appointmentList.appendChild(listItem);
     });
 }
+
+function loadAvailableSlots() {
+    let slots = JSON.parse(localStorage.getItem('availableSlots')) || [];
+    const timeSelect = document.getElementById('available-times');
+
+    // Clear existing options
+    timeSelect.innerHTML = '<option value="">Select a time</option>';
+
+    slots.forEach(slot => {
+        const option = document.createElement('option');
+        option.value = slot.time;
+        option.textContent = `${slot.day} - ${slot.time}`;
+        timeSelect.appendChild(option);
+    });
+}
+
+// Call this function when the page loads
+document.addEventListener("DOMContentLoaded", function() {
+    loadAvailableSlots();
+});
+

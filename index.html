@@ -17,15 +17,9 @@
         <section class="admin-panel">
             <h2>Admin Panel - Set Available Times</h2>
             <form id="admin-form">
-                <label for="day">Day:</label>
-                <select id="day" name="day">
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday">Wednesday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                    <option value="Saturday">Saturday</option>
-                    <option value="Sunday">Sunday</option>
+                <label for="date">Availabe Date:</label>
+                <input type="date" id="date" name="date" required>
+                    
                 </select>
 
                 <label for="time">Available Time:</label>
@@ -45,8 +39,11 @@
                 <label for="date">Preferred Date:</label>
                 <input type="date" id="date" name="date" required>
 
-                <label for="time">Preferred Time:</label>
-                <input type="time" id="time" name="time" required>
+                
+                <label for="time">Available Times:</label>   <!-- gets selected time with help of java file-->
+                <select id="available-times" name="time" required>
+                <option value="">Select a time</option>
+                </select>
 
                 <button type="submit">Book Appointment</button>
             </form>

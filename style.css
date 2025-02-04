@@ -3,25 +3,28 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #00000032;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
 /* Header */
 header {
-    background-color: rgb(0, 33, 250);
-    color: rgba(0, 0, 0, 0.945);
+    background-color: #0021fa;
+    color: white;
     text-align: center;
     padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 /* Admin Panel */
 .admin-panel {
-    background-color: #000000;
+    background-color: #ffffff;
     padding: 20px;
     margin: 20px auto;
     width: 80%;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .admin-panel form {
@@ -31,35 +34,38 @@ header {
 
 .admin-panel label {
     margin: 5px 0;
+    font-weight: bold;
 }
 
 .admin-panel input,
 .admin-panel select,
 .admin-panel button {
-    padding: 10px;
+    padding: 12px;
     margin: 5px 0 15px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 1rem;
 }
 
 .admin-panel button {
     background-color: #28a745;
-    color: rgb(0, 0, 0);
+    color: white;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 .admin-panel button:hover {
-    background-color: #000000;
+    background-color: #0056b3;
 }
 
 /* Booking Form */
 .booking-form {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 20px;
     margin: 20px auto;
     width: 80%;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .booking-form form {
@@ -70,30 +76,32 @@ header {
 .booking-form input,
 .booking-form select,
 .booking-form button {
-    padding: 10px;
+    padding: 12px;
     margin: 5px 0 15px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 1rem;
 }
 
 .booking-form button {
-    background-color: #f8be00;
+    background-color: #ffa500;
     color: white;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 .booking-form button:hover {
-    background-color: #ff0000;
+    background-color: #ff4500;
 }
 
 /* Appointment List */
 .appointments {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 20px;
     margin: 20px auto;
     width: 80%;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .appointments ul {
@@ -104,6 +112,8 @@ header {
 .appointments li {
     margin: 10px 0;
     font-size: 16px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
 }
 
 /* Footer */
@@ -112,11 +122,9 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    position: absolute;
+    position: relative;
     width: 100%;
-    bottom: 0;
+    margin-top: 20px;
 }
-
-/* Hide the admin panel by default */
 
 
