@@ -17,6 +17,80 @@ header {
     font-weight: bold;
 }
 
+/* Introduction Section */
+.introduction {
+    text-align: center;
+    padding: 20px;
+    color: #000000;
+    font-size: large;
+}
+
+/* Slideshow Container */
+.slideshow {
+    text-align: center;
+    padding: 20px;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+}
+
+.slide img {
+    width: 60%;  /* Increase width */
+    max-width: 400px; /* Increase max size */
+    height: auto;
+   
+}
+
+/* Navigation Buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 3s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 /* Admin Panel */
 .admin-panel {
     background-color: #ffffff;
@@ -126,5 +200,3 @@ footer {
     width: 100%;
     margin-top: 20px;
 }
-
-

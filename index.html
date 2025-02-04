@@ -1,26 +1,50 @@
-<!-- html all about display-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barber Appointment</title>
+    <title>SerranoCutz</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Serrano Cuts</h1>
+        <h1>SerranoCutz</h1>
     </header>
 
     <main>
+        <!-- Introduction Section -->
+        <section class="introduction">
+            <h2>Welcome to SerranoCutz </h2>
+            <p>Instagram: <a href="https://www.instagram.com/serranocutz_/" target="_blank">@serranocutz_</a></p>
+            <p>Snap: serranocutz</p>
+            <p>Phone Number: (571)-233-0446</p>
+        </section>
+
+        <!-- Interactive Photo Slideshow -->
+        <section class="slideshow">
+            
+            <div class="slideshow-container">
+                <div class="slide fade">
+                    <img src="https://media-hosting.imagekit.io//5acf6a5a27de40ed/IMG_0677.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=ssyePFezbcxMnkJc3NHiA9rWd2i-9AckIGk6ktjp~8A697D~NXqvV7gVGEG4f98DXW-rW3eBz9jAmwii1kxMcKQTGTWeEb-lvPTdZX-HW0AMNGcTJ2eRyCidiAqlFD7yRJehBE2tuOVNeulxbQfcTJrM-riUEu0GSI27qC6z~l0rgtNOU3ThEXuCt~bfwoNrBehaWVWGJR7R1ebGTFiL~04e2-78SDI2r8IaPUawkKMPZ0D~l08N4BbvbzoONnsxg5IFEdbMbWNTulAIOwoNSsmacN5bmLmV6Xij7KGSGzpfpGfmEi~Abal5Q0JmQGs5jXFqCd6bGEcCrjylh7G28w__" alt="Haircut 1">
+                </div>
+                <div class="slide fade">
+                    <img src="https://media-hosting.imagekit.io//923f12767c3e4a23/IMG_0676.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=lLjmf1jPnMDdy7AETG4JFH7JpLI4VvOz-1FnPbRXIqPjar6htaVvtRhdK7jp8NoA8S5FGGcbSJ5cJEKmYz6rvVo-CqNWWLNa06rOZ2VIdCaIC76ISnacWmhM0bPd5n87eWVrKxc9snfzNHmQ~D3xZadtQUfDtL8mGj-MGRfulFOUTcYoZDb0Y9KMrXhR6XBnFfyS71PMKBcLJkCN7t1xNwjWowVf38oov1n~lWgNkn~9OSTqzFF0vScPgx~m3QMOyNd8L7Bf2ec5KqyCrUcWZz5Tda39IIGVN3ws1XP5DlvdEjDbcwsHz6E8cxfo840JQbIIF37WZZa6wssCQyZpqg__" alt="Haircut 2">
+                </div>
+                <div class="slide fade">
+                    <img src="https://media-hosting.imagekit.io//fb21fa08c615496f/IMG_0675.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=i5WXPF6AMlCBRr0ulBOUr15wESG0tDRsJ1dUiTQRWCve1JTIvjgEsARrd2sUxAYVBqbW5AR8cex8GBpKZNK9U3zmiIahvIENmUaV2j5cTDNIKAzmUw~alUdA7SJwOP3s-xsRAPUpD79GlMA57Zx01KBq4M6uLgPg0v~uFv7vByLPtxe4fL7rdZQlv998B4gpvfWh5iWVh5MwzQIQAdV7e0y12Xt14a676SJB9KD5oB0LRBaesJUmq7WI0EoR9Bik76kI3DexL8R-nXdhpEdn0Ogt7PklWKC4EMI8z~XJvUYE6E5CUyqqqRo58ZSOech2m5G9Mb9RIcQOpr9smRtFdA__" alt="Haircut 3">
+                </div>
+                <!-- Add more slides as needed -->
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+        </section>
+
         <!-- Admin Panel -->
         <section class="admin-panel">
             <h2>Admin Panel - Set Available Times</h2>
             <form id="admin-form">
-                <label for="date">Availabe Date:</label>
+                <label for="date">Available Date:</label>
                 <input type="date" id="date" name="date" required>
-                    
-                </select>
 
                 <label for="time">Available Time:</label>
                 <input type="time" id="time" name="time" required>
@@ -39,21 +63,20 @@
                 <label for="date">Preferred Date:</label>
                 <input type="date" id="date" name="date" required>
 
-                
-                <label for="time">Available Times:</label>   <!-- gets selected time with help of java file-->
+                <label for="available-times">Available Times:</label>
                 <select id="available-times" name="time" required>
-                <option value="">Select a time</option>
+                    <option value="">Select a time</option>
                 </select>
 
                 <button type="submit">Book Appointment</button>
             </form>
         </section>
 
+        <!-- Booked Appointments -->
         <section class="appointments" style="display: none;">
             <h2>Booked Appointments</h2>
             <ul id="appointment-list"></ul>
         </section>
-        
     </main>
 
     <footer>
