@@ -53,6 +53,8 @@ document.addEventListener("DOMContentLoaded", function() {
         
         event.target.reset(); // Clear the form
     });
+    loadAvailableDates();
+
 });
 
 // Function to save available time slots (for the admin)
@@ -60,8 +62,9 @@ function saveAvailableSlot(slot) {
     let slots = JSON.parse(localStorage.getItem('availableSlots')) || [];
     slots.push(slot);
     localStorage.setItem('availableSlots', JSON.stringify(slots));
-    loadAvailableSlots(); // Refresh the list of available slots
+    loadAvailableDates(); // Also refresh available dates
 }
+
 
 
 // Function to save appointment
@@ -93,23 +96,49 @@ function loadBookedAppointments() {
     });
 }
 
-function loadAvailableSlots() {
+function loadAvailableSlots(selectedDate) {
     let slots = JSON.parse(localStorage.getItem('availableSlots')) || [];
     const timeSelect = document.getElementById('available-times');
 
     // Clear existing options
     timeSelect.innerHTML = '<option value="">Select a time</option>';
 
-    slots.forEach(slot => {
+    // Filter slots based on the selected date
+    let filteredSlots = slots.filter(slot => slot.date === selectedDate);
+
+    filteredSlots.forEach(slot => {
         const option = document.createElement('option');
         option.value = slot.time;
-        option.textContent = `${slot.day} - ${slot.time}`;
+        option.textContent = slot.time;
         timeSelect.appendChild(option);
     });
 }
+function loadAvailableDates() {
+    let slots = JSON.parse(localStorage.getItem('availableSlots')) || [];
+    const dateSelect = document.getElementById('date');
+
+    // Clear existing options
+    dateSelect.innerHTML = '<option value="">Select a date</option>';
+
+    let uniqueDates = [...new Set(slots.map(slot => slot.date))];
+
+    uniqueDates.forEach(date => {
+        const option = document.createElement('option');
+        option.value = date;
+        option.textContent = date;
+        dateSelect.appendChild(option);
+    });
+}
+
+
 
 // Call this function when the page loads
 document.addEventListener("DOMContentLoaded", function() {
     loadAvailableSlots();
 });
+
+document.getElementById('date').addEventListener('change', function() {
+    loadAvailableSlots(this.value);
+});
+
 
