@@ -1,88 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SerranoCutz</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seranno Cutz</title>
+  <style>
+    /* Reset some default styles */
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('fonts/MyCustomFont.woff2') format('woff2'),
+       url('fonts/MyCustomFont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Base styles */
+body {
+  font-family: 'MyCustomFont', sans-serif;
+  line-height: 1.6;
+  color: #000; /* Black text */
+  background-color: #fff; /* White background */
+}
+
+/* Container */
+.container {
+  width: 80%;
+  margin: 20px auto;
+}
+
+/* Header and Navigation */
+header {
+  background-color: #001f3f; /* Navy blue background */
+  color: #fff; /* White text */
+  padding: 20px 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+ /* Video Section */
+ #video-section {
+      position: relative;
+      width: 100%;
+      height: 800px;
+      overflow: hidden;
+    }
+
+    #video-section video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #video-section .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    #video-section .overlay h1 {
+      font-size: 2.5rem;
+    }
+
+    #video-section .overlay h2 {
+      font-size: 1.2rem;
+    }
+
+    /* About Section */
+    .about {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .about .instagram-icon {
+      width: 40px;
+      height: auto;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #001325;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    /* Book Now button */
+    .book-button {
+      background-color: #000; /* Black */
+      border: none;
+      padding: 10px 20px;
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease-in-out;
+      margin-top: 15px; /* Adjust the value as needed */
+      display: inline-block; /* Ensures the margin is applied properly */      
+    }
+
+    /* Hover effect */
+    .book-button:hover {
+      background-color: #004080; /* Lighter navy blue */
+    }
+
+
+    .book-button-header {
+      background-color: #000; /* Black */
+      border: none;
+      padding: 10px 20px;
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    /* Hover effect */
+    .book-button-header:hover {
+      background-color: #004080; /* Lighter navy blue */
+    }    
+
+
+
+/* Section Headings */
+section h2 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #001f3f; /* Navy blue */
+}
+
+/* About Section */
+.about {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.about p {
+  margin-bottom: 10px;
+}
+
+/* Gallery Section */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #000; /* Black border */
+  border-radius: 5px;
+}
+
+/* Booking Section */
+#booking {
+  text-align: center;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  background-color: #001f3f; /* Navy blue */
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+  </style>
 </head>
 <body>
-    <header>
-        <h1>SerranoCutz</h1>
-    </header>
+  <!-- Header and Navigation -->
+  <header>
+    <div class="container">
+      <h1>Serrano Cutz</h1>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="book-button-header" href="https://calendly.com/yourcalendlylink" target="_blank">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <!-- Introduction Section -->
-        <section class="introduction">
-            <h2>Welcome to SerranoCutz </h2>
-            <p>Instagram: <a href="https://www.instagram.com/serranocutz_/" target="_blank">@serranocutz_</a></p>
-            <p>Snap: serranocutz</p>
-            <p>Phone Number: (571)-233-0446</p>
-        </section>
+</style>
+</head>
+<body>
+ 
 
-        <!-- Interactive Photo Slideshow -->
-        <section class="slideshow">
-            
-            <div class="slideshow-container">
-                <div class="slide fade">
-                    <img src="https://media-hosting.imagekit.io//5acf6a5a27de40ed/IMG_0677.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=ssyePFezbcxMnkJc3NHiA9rWd2i-9AckIGk6ktjp~8A697D~NXqvV7gVGEG4f98DXW-rW3eBz9jAmwii1kxMcKQTGTWeEb-lvPTdZX-HW0AMNGcTJ2eRyCidiAqlFD7yRJehBE2tuOVNeulxbQfcTJrM-riUEu0GSI27qC6z~l0rgtNOU3ThEXuCt~bfwoNrBehaWVWGJR7R1ebGTFiL~04e2-78SDI2r8IaPUawkKMPZ0D~l08N4BbvbzoONnsxg5IFEdbMbWNTulAIOwoNSsmacN5bmLmV6Xij7KGSGzpfpGfmEi~Abal5Q0JmQGs5jXFqCd6bGEcCrjylh7G28w__" alt="Haircut 1">
-                </div>
-                <div class="slide fade">
-                    <img src="https://media-hosting.imagekit.io//923f12767c3e4a23/IMG_0676.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=lLjmf1jPnMDdy7AETG4JFH7JpLI4VvOz-1FnPbRXIqPjar6htaVvtRhdK7jp8NoA8S5FGGcbSJ5cJEKmYz6rvVo-CqNWWLNa06rOZ2VIdCaIC76ISnacWmhM0bPd5n87eWVrKxc9snfzNHmQ~D3xZadtQUfDtL8mGj-MGRfulFOUTcYoZDb0Y9KMrXhR6XBnFfyS71PMKBcLJkCN7t1xNwjWowVf38oov1n~lWgNkn~9OSTqzFF0vScPgx~m3QMOyNd8L7Bf2ec5KqyCrUcWZz5Tda39IIGVN3ws1XP5DlvdEjDbcwsHz6E8cxfo840JQbIIF37WZZa6wssCQyZpqg__" alt="Haircut 2">
-                </div>
-                <div class="slide fade">
-                    <img src="https://media-hosting.imagekit.io//fb21fa08c615496f/IMG_0675.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=i5WXPF6AMlCBRr0ulBOUr15wESG0tDRsJ1dUiTQRWCve1JTIvjgEsARrd2sUxAYVBqbW5AR8cex8GBpKZNK9U3zmiIahvIENmUaV2j5cTDNIKAzmUw~alUdA7SJwOP3s-xsRAPUpD79GlMA57Zx01KBq4M6uLgPg0v~uFv7vByLPtxe4fL7rdZQlv998B4gpvfWh5iWVh5MwzQIQAdV7e0y12Xt14a676SJB9KD5oB0LRBaesJUmq7WI0EoR9Bik76kI3DexL8R-nXdhpEdn0Ogt7PklWKC4EMI8z~XJvUYE6E5CUyqqqRo58ZSOech2m5G9Mb9RIcQOpr9smRtFdA__" alt="Haircut 3">
-                </div>
-                <!-- Add more slides as needed -->
-                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-                <a class="next" onclick="changeSlide(1)">&#10095;</a>
-            </div>
-        </section>
+  <!-- Greeting Video Section -->
+  <section id="video-section">
+    <video autoplay muted loop>
+      <source src="https://media-hosting.imagekit.io//bb728bf0404c4cca/0DCBFED8-48A9-41AB-8297-42A046EDF82A.mov?Expires=1833338192&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=y5AtUzyDay2LO0RT3pu1j~W5kzvoNQrQYqvReBTobjXxA-e7NAlOvfgA8qQTWBXwEv7x79t0vVy~RsejqytU7qsLRTrxz0fD12Y35EtyG9TfuSBIHe1X4RdzaIukfpWqad~x3uoZLC8YdZL2L5~E1ialUq6iXL0Zoefm3KGpAnyCJ8r-b6~aoXqnNceZaH0itwHa3XUTL2nd8AsKuLE~lICatopkCD00iG4Gw7iUiuY2~GOc9EGLKAwbdhLQpTFvXuMNvFKUiQIpeD~6uG6BcHSaJ-Bbp4uAymVtTUQPjimx9ObO2tRpMa0se7e9x1i42YW0TGkOdDSSwyyEilBzIA__" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay">
+      <h1>Serrano Cutz</h1>
+      <h2>Barber in Leesburg, Virginia offering top-notch haircut services</h2>
+    </div>
+  </section>
+  <!-- Main Content -->
+  <main class="container">
+   
+    <!-- About Me Section -->
+   <section id="about">
+    <h2>About Me</h2>
+    <div class="about">
+      <p>Hey, I’m Chris, a passionate barber who’s been perfecting my craft since the COVID days. What started as cutting hair for friends and family at home has turned into a skill I take pride in—giving clean, fresh cuts that keep you looking sharp. Whether it's a classic fade, a crisp lineup, or a new style, I’ve got you covered.
+          Book an appointment today and let’s get you looking your best!</p>
+      <p><strong>Contact Info:</strong></p>
+      <p><strong>Email:</strong> <a href="mailto:john@example.com">john@example.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></p> <!-- real number-->
+      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/serranocutz_/" target="_blank">@SerranoCutz_</a></p>
+    </div>
+  </section>
 
-        <!-- Admin Panel -->
-        <section class="admin-panel">
-            <h2>Admin Panel - Set Available Times</h2>
-            <form id="admin-form">
-                <label for="date">Available Date:</label>
-                <input type="date" id="date" name="date" required>
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="slideshow-container">
+          <img class="slide active" src="https://media-hosting.imagekit.io//5acf6a5a27de40ed/IMG_0677.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=ssyePFezbcxMnkJc3NHiA9rWd2i-9AckIGk6ktjp~8A697D~NXqvV7gVGEG4f98DXW-rW3eBz9jAmwii1kxMcKQTGTWeEb-lvPTdZX-HW0AMNGcTJ2eRyCidiAqlFD7yRJehBE2tuOVNeulxbQfcTJrM-riUEu0GSI27qC6z~l0rgtNOU3ThEXuCt~bfwoNrBehaWVWGJR7R1ebGTFiL~04e2-78SDI2r8IaPUawkKMPZ0D~l08N4BbvbzoONnsxg5IFEdbMbWNTulAIOwoNSsmacN5bmLmV6Xij7KGSGzpfpGfmEi~Abal5Q0JmQGs5jXFqCd6bGEcCrjylh7G28w__" alt="Haircut 1"> <!--Bandhip add links to images-->
+          <img class="slide" src="https://media-hosting.imagekit.io//923f12767c3e4a23/IMG_0676.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=lLjmf1jPnMDdy7AETG4JFH7JpLI4VvOz-1FnPbRXIqPjar6htaVvtRhdK7jp8NoA8S5FGGcbSJ5cJEKmYz6rvVo-CqNWWLNa06rOZ2VIdCaIC76ISnacWmhM0bPd5n87eWVrKxc9snfzNHmQ~D3xZadtQUfDtL8mGj-MGRfulFOUTcYoZDb0Y9KMrXhR6XBnFfyS71PMKBcLJkCN7t1xNwjWowVf38oov1n~lWgNkn~9OSTqzFF0vScPgx~m3QMOyNd8L7Bf2ec5KqyCrUcWZz5Tda39IIGVN3ws1XP5DlvdEjDbcwsHz6E8cxfo840JQbIIF37WZZa6wssCQyZpqg__" alt="Haircut 2">
+          <img class="slide" src="https://media-hosting.imagekit.io//fb21fa08c615496f/IMG_0675.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=i5WXPF6AMlCBRr0ulBOUr15wESG0tDRsJ1dUiTQRWCve1JTIvjgEsARrd2sUxAYVBqbW5AR8cex8GBpKZNK9U3zmiIahvIENmUaV2j5cTDNIKAzmUw~alUdA7SJwOP3s-xsRAPUpD79GlMA57Zx01KBq4M6uLgPg0v~uFv7vByLPtxe4fL7rdZQlv998B4gpvfWh5iWVh5MwzQIQAdV7e0y12Xt14a676SJB9KD5oB0LRBaesJUmq7WI0EoR9Bik76kI3DexL8R-nXdhpEdn0Ogt7PklWKC4EMI8z~XJvUYE6E5CUyqqqRo58ZSOech2m5G9Mb9RIcQOpr9smRtFdA__" alt="Haircut 3">
+             
 
-                <label for="time">Available Time:</label>
-                <input type="time" id="time" name="time" required>
+          
+          <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+          <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+      </section>
+      
+      <style>
 
-                <button type="submit">Add Available Slot</button>
-            </form>
-        </section>
+    .slide {
+        display: none;
+         width: 60%; /* Adjust this percentage to make images smaller or larger */
+        max-width: 400px; /* Ensures images don’t get too big */
+            opacity: 0;
+        transition: opacity 1s ease-in-out;
+        margin: auto; /* Centers the images */
+}
 
-        <!-- User Booking Section -->
-        <section class="booking-form">
-            <h2>Book Your Appointment</h2>
-            <form id="appointment-form">
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" required>
+        .slideshow-container {
+          position: relative;
+          max-width: 800px;
+          margin: auto;
+        }
+        .slide {
+          display: none;
+          width: 100%;
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
+        }
+        .active {
+          display: block;
+          opacity: 1;
+        }
+      </style>
+      
+      <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+        
+        function showSlide(index) {
+          slides.forEach((slide, i) => {
+            slide.style.display = i === index ? "block" : "none";
+            slide.style.opacity = i === index ? "1" : "0";
+          });
+        }
+        
+        function changeSlide(direction) {
+          slideIndex = (slideIndex + direction + slides.length) % slides.length;
+          showSlide(slideIndex);
+        }
+        
+        function autoSlide() {
+          changeSlide(1);
+          setTimeout(autoSlide, 3000);
+        }
+        
+        autoSlide();
+      </script>
 
-                <label for="date">Preferred Date:</label>
-                <input type="date" id="date" name="date" required>
+    <!-- Booking Section -->
+    <section id="booking">
+      <h2>Book an Appointment</h2>
+      <p>Ready for a new look? Click the button below to schedule your appointment.</p>
+      <p></p>
+      <p>  
+        <a class="book-button" href="https://calendly.com/yourcalendlylink" target="_blank">Book Now</a>
+      </p>
+    </section>
+  </main>
 
-                <label for="available-times">Available Times:</label>
-                <select id="available-times" name="time" required>
-                    <option value="">Select a time</option>
-                </select>
-
-                <button type="submit">Book Appointment</button>
-            </form>
-        </section>
-
-        <!-- Booked Appointments -->
-        <section class="appointments" style="display: none;">
-            <h2>Booked Appointments</h2>
-            <ul id="appointment-list"></ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; Made by the goats, Chris Currie and Bandhip Hanjra.</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 S. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>

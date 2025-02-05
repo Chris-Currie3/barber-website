@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+/*document.addEventListener("DOMContentLoaded", function () {
     // Admin password protection
     const adminPassword = "admin123";
     const enteredPassword = prompt("Enter Admin password, if not admin press cancel.");
@@ -119,4 +119,12 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(() => {
         changeSlide(1);
     }, 5000);
-});
+}); */
+//all above might do something, might not
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove("active");
+    });
+    slides[index].classList.add("active");
+  }
+  
