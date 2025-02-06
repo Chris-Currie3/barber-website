@@ -353,80 +353,72 @@ nav a {
         </div>
     </section>
   
-   <!-- Gallery Section -->
-<section id="gallery">
-  <h2>Gallery</h2>
-  <div class="gallery-container">
-      <img class="gallery-item" src="https://i.imgur.com/MUYOq09.jpeg" alt="Haircut 1">
-      <img class="gallery-item" src="https://i.imgur.com/F2Z8own.jpeg" alt="Haircut 2">
-      <img class="gallery-item" src="https://i.imgur.com/xN0ErlR.jpeg" alt="Haircut 3">
-  </div>
-</section>
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="slideshow-container">
+          <img class="slide active" src="https://media-hosting.imagekit.io//5acf6a5a27de40ed/IMG_0677.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=ssyePFezbcxMnkJc3NHiA9rWd2i-9AckIGk6ktjp~8A697D~NXqvV7gVGEG4f98DXW-rW3eBz9jAmwii1kxMcKQTGTWeEb-lvPTdZX-HW0AMNGcTJ2eRyCidiAqlFD7yRJehBE2tuOVNeulxbQfcTJrM-riUEu0GSI27qC6z~l0rgtNOU3ThEXuCt~bfwoNrBehaWVWGJR7R1ebGTFiL~04e2-78SDI2r8IaPUawkKMPZ0D~l08N4BbvbzoONnsxg5IFEdbMbWNTulAIOwoNSsmacN5bmLmV6Xij7KGSGzpfpGfmEi~Abal5Q0JmQGs5jXFqCd6bGEcCrjylh7G28w__" alt="Haircut 1"> <!--Bandhip add links to images-->
+          <img class="slide" src="https://media-hosting.imagekit.io//923f12767c3e4a23/IMG_0676.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=lLjmf1jPnMDdy7AETG4JFH7JpLI4VvOz-1FnPbRXIqPjar6htaVvtRhdK7jp8NoA8S5FGGcbSJ5cJEKmYz6rvVo-CqNWWLNa06rOZ2VIdCaIC76ISnacWmhM0bPd5n87eWVrKxc9snfzNHmQ~D3xZadtQUfDtL8mGj-MGRfulFOUTcYoZDb0Y9KMrXhR6XBnFfyS71PMKBcLJkCN7t1xNwjWowVf38oov1n~lWgNkn~9OSTqzFF0vScPgx~m3QMOyNd8L7Bf2ec5KqyCrUcWZz5Tda39IIGVN3ws1XP5DlvdEjDbcwsHz6E8cxfo840JQbIIF37WZZa6wssCQyZpqg__" alt="Haircut 2">
+          <img class="slide" src="https://media-hosting.imagekit.io//fb21fa08c615496f/IMG_0675.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=i5WXPF6AMlCBRr0ulBOUr15wESG0tDRsJ1dUiTQRWCve1JTIvjgEsARrd2sUxAYVBqbW5AR8cex8GBpKZNK9U3zmiIahvIENmUaV2j5cTDNIKAzmUw~alUdA7SJwOP3s-xsRAPUpD79GlMA57Zx01KBq4M6uLgPg0v~uFv7vByLPtxe4fL7rdZQlv998B4gpvfWh5iWVh5MwzQIQAdV7e0y12Xt14a676SJB9KD5oB0LRBaesJUmq7WI0EoR9Bik76kI3DexL8R-nXdhpEdn0Ogt7PklWKC4EMI8z~XJvUYE6E5CUyqqqRo58ZSOech2m5G9Mb9RIcQOpr9smRtFdA__" alt="Haircut 3">
+             
 
-<style>
-  .gallery-container {
-      display: flex;
-      justify-content: center;
-      gap: 20px; /* Space between images */
-      flex-wrap: wrap; /* Allows images to wrap on smaller screens */
-      margin: auto;
-  }
+          
+          <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+          <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+      </section>
+      
+      <style>
 
-  .gallery-item {
-      width: 30%; /* Adjust the width of the images */
-      max-width: 350px; /* Optional: to ensure images don't get too large */
-      border-radius: 10px; /* Optional: for rounded corners */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow effect */
-      transition: transform 0.3s ease; /* Optional: adds a hover effect */
-  }
+    .slide {
+        display: none;
+         width: 60%; /* Adjust this percentage to make images smaller or larger */
+        max-width: 400px; /* Ensures images don’t get too big */
+            opacity: 0;
+        transition: opacity 1s ease-in-out;
+        margin: auto; /* Centers the images */
+}
 
-  .gallery-item:hover {
-      transform: scale(1.05); /* Optional: zoom effect on hover */
-  }
-
-  /* Optional: Adjust for smaller screens */
-  @media (max-width: 768px) {
-      .gallery-item {
-          width: 45%; /* On smaller screens, use two images per row */
-      }
-  }
-
-  @media (max-width: 480px) {
-      .gallery-item {
-          width: 100%; /* On very small screens, stack images vertically */
-      }
-  }
-</style>
-
-
-<script>
-  window.onload = function () {
-      let slideIndex = 0;
-      const slides = document.querySelectorAll(".slide");
-
-      function showSlide(index) {
+        .slideshow-container {
+          position: relative;
+          max-width: 800px;
+          margin: auto;
+        }
+        .slide {
+          display: none;
+          width: 100%;
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
+        }
+        .active {
+          display: block;
+          opacity: 1;
+        }
+      </style>
+      
+      <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+        
+        function showSlide(index) {
           slides.forEach((slide, i) => {
-              slide.classList.remove("active");
-              if (i === index) {
-                  slide.classList.add("active");
-              }
+            slide.style.display = i === index ? "block" : "none";
+            slide.style.opacity = i === index ? "1" : "0";
           });
-      }
-
-      function changeSlide(direction) {
+        }
+        
+        function changeSlide(direction) {
           slideIndex = (slideIndex + direction + slides.length) % slides.length;
           showSlide(slideIndex);
-      }
-
-      function autoSlide() {
+        }
+        
+        function autoSlide() {
           changeSlide(1);
           setTimeout(autoSlide, 3000);
-      }
-
-      autoSlide();
-  };
-</script>
-
+        }
+        
+        autoSlide();
+      </script>
 
     <!-- Booking Section -->
     <section id="booking">
