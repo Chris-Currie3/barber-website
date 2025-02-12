@@ -334,6 +334,13 @@ nav a {
   justify-content: center;
   margin: 10px 0;
 }
+
+@media (max-width: 768px) { /* Adjust size for smaller screens */
+  .star-rating span {
+    font-size: 4rem !important; /* Reduce size for mobile */
+  }
+}
+
 .star-rating span {
   font-size: 7rem; /* Increase from 2rem to 3rem */
   cursor: pointer;
@@ -341,8 +348,43 @@ nav a {
   transition: color 0.2s;
 }
 
+
 .star-rating span.selected {
   color: #004080; /* Gold for selected stars FFD700 */
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Ensures modal is hidden initially */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 
@@ -366,11 +408,6 @@ nav a {
       </nav>
     </div>
   </header>
-
-</style>
-</head>
-<body>
- 
 
   <!-- Greeting Video Section -->
   <section id="video-section">
@@ -593,7 +630,52 @@ nav a {
         }
       });
     }
+
+    document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("reviewModal");
+  const closeModal = document.querySelector(".close");
+  const submitButton = document.querySelector(".review-form button");
+  const nameInput = document.getElementById("name");
+  const reviewInput = document.getElementById("review");
+  const starInputs = document.querySelectorAll(".stars input[type='radio']");
+  const starSpans = document.querySelectorAll(".star-rating span"); // Targeting the spans with selected class
+
+  submitButton.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent actual form submission
+    modal.style.display = "flex"; // Show modal
+
+    // Clear form fields
+    nameInput.value = "";
+    reviewInput.value = "";
+
+    // Uncheck all radio buttons
+    starInputs.forEach(star => (star.checked = false));
+
+    // Remove visual highlighting by removing 'selected' class from all star spans
+    starSpans.forEach(span => span.classList.remove("selected"));
+  });
+
+  closeModal.addEventListener("click", function () {
+    modal.style.display = "none"; // Hide modal when "X" is clicked
+  });
+
+  window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none"; // Close modal if user clicks outside
+    }
+  });
+});
+
+
+
+
+
+
+
   </script>
+
+
+
   
 
 
@@ -651,6 +733,17 @@ nav a {
   <footer>
     <p>&copy; 2025 Chris Serrano All Rights Reserved. Website made by Chris Currie, Cameron Farrel, and Bandhip Hanjra</p>
   </footer>
-  
+
+ <!-- Custom Popup Modal -->
+<div id="reviewModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Review Received!</h2>
+    <p>Thank you for your feedback. We appreciate your support!</p>
+  </div>
+</div>
+
+
+
 </body>
 </html>
