@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seranno Cutz</title>
+  <title>Serrano Cutz</title>
   <style>
     /* Reset some default styles */
 /* Reset default browser styles */
@@ -180,6 +180,35 @@ nav a {
         background-color: #004080; /* Lighter navy blue */
         }    
 
+        @media (max-width: 768px) {
+  .book-button {
+    display: block; /* Makes the button take full width */
+    width: 80%; /* Adjust width */
+    margin: 15px auto; /* Centers the button */
+    text-align: center; /* Centers the text */
+    font-size: 1.2rem; /* Slightly larger for better visibility */
+    padding: 15px; /* More padding for a better touch area */
+  }
+
+  .book-button-header {
+    font-size: 0.9rem; /* Adjust header button size */
+    padding: 8px 15px; /* Adjust padding */
+  }
+
+  @media (max-width: 768px) {
+  .book-button-header {
+    font-size: 0.8rem; /* Slightly smaller font */
+    padding: 6px 12px; /* Reduce padding */
+    width: auto; /* Ensure it doesn't stretch */
+    display: inline-block; /* Keep it inline */
+  }
+}
+
+
+}
+
+
+
 
 
     /* Section Headings */
@@ -260,18 +289,31 @@ nav a {
 }
 
 .review-form button {
-  background-color: #001f3f;
+  background: linear-gradient(135deg, #001f3f, #004080);
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 15px 24px; /* Increased padding for a better look */
   cursor: pointer;
-  margin-top: 10px;
-  border-radius: 5px;
+  margin-top: 20px; /* More space above */
+  border-radius: 8px;
+  font-size: 1.1rem; /* Slightly larger text */
+  font-weight: bold;
+  width: 100%; /* Makes the button full width within the form */
+  max-width: 300px; /* Prevents it from being too wide */
+  display: block; /* Ensures proper alignment */
+  margin-left: auto; /* Centers it */
+  margin-right: auto; /* Centers it */
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+
 .review-form button:hover {
-  background-color: #004080;
+  background: linear-gradient(135deg, #004080, #0056b3);
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
+
 
 #reviewsContainer {
   margin-top: 20px;
@@ -285,6 +327,25 @@ nav a {
 .review p {
   margin: 5px 0;
 }
+
+.star-rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px 0;
+}
+.star-rating span {
+  font-size: 7rem; /* Increase from 2rem to 3rem */
+  cursor: pointer;
+  color: #ccc; /* Default empty star color */
+  transition: color 0.2s;
+}
+
+.star-rating span.selected {
+  color: #004080; /* Gold for selected stars FFD700 */
+}
+
+
 
 
 
@@ -451,33 +512,6 @@ nav a {
 </style>
 
 
-<script>
-  window.onload = function () {
-      let slideIndex = 0;
-      const slides = document.querySelectorAll(".slide");
-
-      function showSlide(index) {
-          slides.forEach((slide, i) => {
-              slide.classList.remove("active");
-              if (i === index) {
-                  slide.classList.add("active");
-              }
-          });
-      }
-
-      function changeSlide(direction) {
-          slideIndex = (slideIndex + direction + slides.length) % slides.length;
-          showSlide(slideIndex);
-      }
-
-      function autoSlide() {
-          changeSlide(1);
-          setTimeout(autoSlide, 3000);
-      }
-
-      autoSlide();
-  };
-</script>
 
 
     <!-- Booking Section -->
@@ -499,17 +533,19 @@ nav a {
       <div class="review-form">
       <h3>Leave a Review</h3>
       <form id="reviewForm">
-          <label for="name">Name:</label>
-          <input type="text" id="name" required>
+        
   
-          <label for="rating">Rating:</label>
-          <select id="rating">
-          <option value="5">★★★★★</option>
-          <option value="4">★★★★☆</option>
-          <option value="3">★★★☆☆</option>
-          <option value="2">★★☆☆☆</option>
-          <option value="1">★☆☆☆☆</option>
-          </select>
+      <!-- Star Rating Widget -->
+      <div class="star-rating">
+        <span data-value="1">&#9733;</span>
+        <span data-value="2">&#9733;</span>
+        <span data-value="3">&#9733;</span>
+        <span data-value="4">&#9733;</span>
+        <span data-value="5">&#9733;</span>
+      </div>
+      <input type="hidden" id="ratingValue" value="0">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
   
           <label for="review">Review:</label>
           <textarea id="review" required></textarea>
@@ -527,9 +563,94 @@ nav a {
       </div>
   </section>
 
+<!--Script for reviews-->
+  <script>
+    const stars = document.querySelectorAll('.star-rating span');
+    const ratingValue = document.getElementById('ratingValue');
+  
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const rating = star.getAttribute('data-value');
+        ratingValue.value = rating;
+        updateStars(rating);
+      });
+  
+      star.addEventListener('mouseover', () => {
+        updateStars(star.getAttribute('data-value'));
+      });
+  
+      star.addEventListener('mouseout', () => {
+        updateStars(ratingValue.value);
+      });
+    });
+  
+    function updateStars(rating) {
+      stars.forEach(star => {
+        if (star.getAttribute('data-value') <= rating) {
+          star.classList.add('selected');
+        } else {
+          star.classList.remove('selected');
+        }
+      });
+    }
+  </script>
+  
+
+
+
+  
+  <script>
+    // Function to fetch and display reviews
+    async function fetchReviews() {
+      try {
+        const response = await fetch('https://s9i0n6ic20.execute-api.us-east-2.amazonaws.com/stage1/serranoreviews'); // Replace with your actual endpoint
+        const data = await response.json();
+        // Code to update your page with the reviews data
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching reviews:', error);
+      }
+    }
+  
+    // Submit event handler for the review form
+    document.getElementById('reviewForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+      // Gather review data
+      const name = document.getElementById('name').value;
+      const rating = document.getElementById('ratingValue').value; // Assuming you're using the star rating widget
+      const review = document.getElementById('review').value;
+  
+      const reviewData = { name, rating, review };
+  
+      try {
+        const response = await fetch('https://s9i0n6ic20.execute-api.us-east-2.amazonaws.com/stage1/serranoreviews', { // Replace with your actual endpoint
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(reviewData)
+        });
+        const result = await response.json();
+        console.log('Review submitted:', result);
+        // Optionally clear the form or update the page
+        fetchReviews(); // Refresh reviews after submission
+      } catch (error) {
+        console.error('Error submitting review:', error);
+      }
+    });
+  
+    // Fetch reviews on page load
+    window.addEventListener('load', fetchReviews);
+  </script>
+  
+
+
+
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Chris Serrano All Rights Reserved. Website made by Chris Currie, Cameron Farrel, and Bandhip Hanjra</p>
   </footer>
+  
 </body>
 </html>

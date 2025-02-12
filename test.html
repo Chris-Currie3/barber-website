@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seranno Cutz</title>
+  <title>Serrano Cutz</title>
   <style>
     /* Reset some default styles */
 /* Reset default browser styles */
@@ -68,40 +68,62 @@ nav a {
 }
 
  /* Video Section */
- #video-section {
-      position: relative;
-      width: 100%;
-      height: 800px;
-      overflow: hidden;
-    }
+#video-section {
+  position: relative;
+  width: 100%; /* Adds space on both sides */
+  max-width: 1200px; /* Prevents it from being too wide on large screens */
+  height: 700px; /* Reduced height */
+  margin: 20px auto; /* Centers it horizontally */
+  overflow: hidden;
+  border-radius: 10px; /* Optional: Clean rounded edges */
+}
 
-    #video-section video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+#video-section video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%; /* Adjust this value to fine-tune positioning */
+}
 
-    #video-section .overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: #fff;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    }
+#video-section .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
 
-    #video-section .overlay h1 {
-      font-size: 2.5rem;
-    }
+#video-section .overlay h1 {
+  font-size: 2rem;
+}
 
-    #video-section .overlay h2 {
-      font-size: 1.2rem;
-    }
+#video-section .overlay h2 {
+  font-size: 1rem;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  #video-section {
+    width: 90%; /* Slightly wider on smaller screens */
+    height: 250px; /* Reduce height more */
+  }
+}
+
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  #video-section {
+    width: 90%; /* Slightly wider on smaller screens */
+    height: 250px; /* Reduce height more */
+  }
+}
+
 
     /* About Section */
     .about {
-      background-color: #fff;
+      background-color: #ffffff;
       padding: 20px;
       border-radius: 5px;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -158,6 +180,35 @@ nav a {
         background-color: #004080; /* Lighter navy blue */
         }    
 
+        @media (max-width: 768px) {
+  .book-button {
+    display: block; /* Makes the button take full width */
+    width: 80%; /* Adjust width */
+    margin: 15px auto; /* Centers the button */
+    text-align: center; /* Centers the text */
+    font-size: 1.2rem; /* Slightly larger for better visibility */
+    padding: 15px; /* More padding for a better touch area */
+  }
+
+  .book-button-header {
+    font-size: 0.9rem; /* Adjust header button size */
+    padding: 8px 15px; /* Adjust padding */
+  }
+
+  @media (max-width: 768px) {
+  .book-button-header {
+    font-size: 0.8rem; /* Slightly smaller font */
+    padding: 6px 12px; /* Reduce padding */
+    width: auto; /* Ensure it doesn't stretch */
+    display: inline-block; /* Keep it inline */
+  }
+}
+
+
+}
+
+
+
 
 
     /* Section Headings */
@@ -193,77 +244,94 @@ nav a {
     border-radius: 5px;
     }
 
-    /* Booking Section */
-    #booking {
-    text-align: center;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    }
+   /* Booking Section */
+#booking {
+  width: 60%; /* Makes the section narrower */
+  max-width: 800px; /* Prevents it from getting too wide */
+  margin: 40px auto; /* Adds space above and centers it */
+  text-align: center;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px; /* Slightly more rounded for a cleaner look */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-    /* Footer */
-    footer {
-    background-color: #001f3f; /* Navy blue */
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    }
-    /* Customer Review Section */
-    #reviews {
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    margin-top: 40px;
-    }
+/* Customer Review Section */
+#reviews {
+  width: 80%; /* Makes the section narrower */
+  max-width: 1200px; /* Prevents it from getting too wide */
+  margin: 40px auto; /* Centers it horizontally and adds space above and below */
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-    .review-form {
-    margin-bottom: 20px;
-    }
+/* Review Form */
+.review-form {
+  margin-bottom: 20px;
+}
 
-    .review-form label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-    }
+.review-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
 
-    .review-form input, 
-    .review-form select, 
-    .review-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    }
+.review-form input, 
+.review-form select, 
+.review-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-    .review-form button {
-    background-color: #001f3f;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    margin-top: 10px;
-    border-radius: 5px;
-    }
+.review-form button {
+  background-color: #001f3f;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+}
 
-    .review-form button:hover {
-    background-color: #004080;
-    }
+.review-form button:hover {
+  background-color: #004080;
+}
 
-    #reviewsContainer {
-    margin-top: 20px;
-    }
+#reviewsContainer {
+  margin-top: 20px;
+}
 
-    .review {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-    }
+.review {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
 
-    .review p {
-    margin: 5px 0;
-    }
+.review p {
+  margin: 5px 0;
+}
+
+.star-rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px 0;
+}
+.star-rating span {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #ccc; /* Default empty star color */
+  transition: color 0.2s;
+}
+.star-rating span.selected {
+  color: #FFD700; /* Gold for selected stars */
+}
+
+
 
 
 
@@ -278,7 +346,7 @@ nav a {
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
+       <!--- <li><a href="#contact">Contact</a></li> -->
           <li><a class="book-button-header" href="https://calendly.com/yourcalendlylink" target="_blank">Book Now</a></li>
         </ul>
       </nav>
@@ -304,121 +372,133 @@ nav a {
   <!-- Main Content -->
   <main class="container">
    
-    <!-- About Me Section -->
-   <section id="about">
-    <h2>About Me</h2>
-    <div class="about">
-      <p>Hey, I’m Chris, a passionate barber who’s been perfecting my craft since the COVID days. What started as cutting hair for friends and family at home has turned into a skill I take pride in—giving clean, fresh cuts that keep you looking sharp. Whether it's a classic fade, a crisp lineup, or a new style, I’ve got you covered.
-          Book an appointment today and let’s get you looking your best!</p>
-      <p><strong>Contact Info:</strong></p>
-      <p><strong>Email:</strong> <a href="mailto:john@example.com">john@example.com</a></p>
-      <p><strong>Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></p> <!-- real number-->
-      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/serranocutz_/" target="_blank">@SerranoCutz_</a></p>
+  <!-- About Me Section -->
+<section id="about">
+  <h2>About Me</h2>
+  <div class="about-container">
+    <div class="about-text">
+      <p>
+        Hey, I’m <strong>Chris</strong>, a passionate barber who’s been perfecting my craft since the COVID days. What started as cutting hair for friends and family at home has turned into a skill I take pride in—giving clean, fresh cuts that keep you looking sharp.
+      </p>
+      <p>
+        Whether it's a classic fade, a crisp lineup, or a new style, I’ve got you covered. Book an appointment today and let’s get you looking your best!
+      </p>
     </div>
-  </section>
+    <div class="contact-info">
+      <h3>Contact Info</h3>
+      <p><strong>Phone:</strong> <a href="tel:5712230446">(571) 223-0446</a></p>
+      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/serranocutz_/" target="_blank">@SerranoCutz_</a></p>
+      <p><strong>Snapchat:</strong> serranocutz</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Customer Reviews Section -->
-    <section id="reviews">
-        <h2>Customer Reviews</h2>
-    
-        <!-- Review Form -->
-        <div class="review-form">
-        <h3>Leave a Review</h3>
-        <form id="reviewForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required>
-    
-            <label for="rating">Rating:</label>
-            <select id="rating">
-            <option value="5">★★★★★</option>
-            <option value="4">★★★★☆</option>
-            <option value="3">★★★☆☆</option>
-            <option value="2">★★☆☆☆</option>
-            <option value="1">★☆☆☆☆</option>
-            </select>
-    
-            <label for="review">Review:</label>
-            <textarea id="review" required></textarea>
-    
-            <button type="submit">Submit Review</button>
-        </form>
-    
-        <p id="message"></p>
-        </div>
-    
-        <!-- Display Reviews -->
-        <div id="reviewsContainer">
-        <h3>Recent Reviews</h3>
-        <div id="reviewList"></div>
-        </div>
-    </section>
+<style>
+  #about {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    max-width: 900px; /* Slightly wider */
+    margin: auto;
+  }
+
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .about-text {
+    max-width: 700px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .contact-info {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Increased width */
+    text-align: left;
+    width: 100%; /* Ensures it scales properly */
+  }
+
+  .contact-info h3 {
+    margin-bottom: 10px;
+  }
+
+  .contact-info a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .contact-info a:hover {
+    text-decoration: underline;
+  }
+</style> <!-- end of about me section and style-->
+
+
+
   
-    <!-- Gallery Section -->
-    <section id="gallery">
-        <h2>Gallery</h2>
-        <div class="slideshow-container">
-          <img class="slide active" src="https://media-hosting.imagekit.io//5acf6a5a27de40ed/IMG_0677.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=ssyePFezbcxMnkJc3NHiA9rWd2i-9AckIGk6ktjp~8A697D~NXqvV7gVGEG4f98DXW-rW3eBz9jAmwii1kxMcKQTGTWeEb-lvPTdZX-HW0AMNGcTJ2eRyCidiAqlFD7yRJehBE2tuOVNeulxbQfcTJrM-riUEu0GSI27qC6z~l0rgtNOU3ThEXuCt~bfwoNrBehaWVWGJR7R1ebGTFiL~04e2-78SDI2r8IaPUawkKMPZ0D~l08N4BbvbzoONnsxg5IFEdbMbWNTulAIOwoNSsmacN5bmLmV6Xij7KGSGzpfpGfmEi~Abal5Q0JmQGs5jXFqCd6bGEcCrjylh7G28w__" alt="Haircut 1"> <!--Bandhip add links to images-->
-          <img class="slide" src="https://media-hosting.imagekit.io//923f12767c3e4a23/IMG_0676.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=lLjmf1jPnMDdy7AETG4JFH7JpLI4VvOz-1FnPbRXIqPjar6htaVvtRhdK7jp8NoA8S5FGGcbSJ5cJEKmYz6rvVo-CqNWWLNa06rOZ2VIdCaIC76ISnacWmhM0bPd5n87eWVrKxc9snfzNHmQ~D3xZadtQUfDtL8mGj-MGRfulFOUTcYoZDb0Y9KMrXhR6XBnFfyS71PMKBcLJkCN7t1xNwjWowVf38oov1n~lWgNkn~9OSTqzFF0vScPgx~m3QMOyNd8L7Bf2ec5KqyCrUcWZz5Tda39IIGVN3ws1XP5DlvdEjDbcwsHz6E8cxfo840JQbIIF37WZZa6wssCQyZpqg__" alt="Haircut 2">
-          <img class="slide" src="https://media-hosting.imagekit.io//fb21fa08c615496f/IMG_0675.JPG?Expires=1833251114&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=i5WXPF6AMlCBRr0ulBOUr15wESG0tDRsJ1dUiTQRWCve1JTIvjgEsARrd2sUxAYVBqbW5AR8cex8GBpKZNK9U3zmiIahvIENmUaV2j5cTDNIKAzmUw~alUdA7SJwOP3s-xsRAPUpD79GlMA57Zx01KBq4M6uLgPg0v~uFv7vByLPtxe4fL7rdZQlv998B4gpvfWh5iWVh5MwzQIQAdV7e0y12Xt14a676SJB9KD5oB0LRBaesJUmq7WI0EoR9Bik76kI3DexL8R-nXdhpEdn0Ogt7PklWKC4EMI8z~XJvUYE6E5CUyqqqRo58ZSOech2m5G9Mb9RIcQOpr9smRtFdA__" alt="Haircut 3">
-             
+  
+   <!-- Gallery Section -->
+<section id="gallery">
+  <h2>Results:</h2>
+  <div class="gallery-container">
+      <img class="gallery-item" src="https://i.imgur.com/MUYOq09.jpeg" alt="Haircut 1">
+      <img class="gallery-item" src="https://i.imgur.com/F2Z8own.jpeg" alt="Haircut 2">
+      <img class="gallery-item" src="https://i.imgur.com/xN0ErlR.jpeg" alt="Haircut 3">
+  </div>
+</section>
 
-          
-          <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-          <button class="next" onclick="changeSlide(1)">&#10095;</button>
-        </div>
-      </section>
-      
-      <style>
+<style>
+  .gallery-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px; /* Space between images */
+      flex-wrap: wrap; /* Allows images to wrap on smaller screens */
+      margin: auto;
+  }
 
-    .slide {
-        display: none;
-         width: 60%; /* Adjust this percentage to make images smaller or larger */
-        max-width: 400px; /* Ensures images don’t get too big */
-            opacity: 0;
-        transition: opacity 1s ease-in-out;
-        margin: auto; /* Centers the images */
+  .gallery-item {
+      width: 30%; /* Adjust the width of the images */
+      max-width: 350px; /* Optional: to ensure images don't get too large */
+      border-radius: 10px; /* Optional: for rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow effect */
+      transition: transform 0.3s ease; /* Optional: adds a hover effect */
+  }
+
+  .gallery-item:hover {
+      transform: scale(1.05); /* Optional: zoom effect on hover */
+  }
+
+  /* Optional: Adjust for smaller screens */
+  @media (max-width: 768px) {
+      .gallery-item {
+          width: 45%; /* On smaller screens, use two images per row */
+      }
+  }
+
+  @media (max-width: 480px) {
+      .gallery-item {
+          width: 100%; /* On very small screens, stack images vertically */
+      }
+  }
+
+  #gallery h2 {
+  text-align: center; /* Centers the text */
+  width: 100%; /* Ensures it takes up the full width */
+  margin-bottom: 20px; /* Optional: Adds space below the heading */
 }
 
-        .slideshow-container {
-          position: relative;
-          max-width: 800px;
-          margin: auto;
-        }
-        .slide {
-          display: none;
-          width: 100%;
-          opacity: 0;
-          transition: opacity 1s ease-in-out;
-        }
-        .active {
-          display: block;
-          opacity: 1;
-        }
-      </style>
-      
-      <script>
-        let slideIndex = 0;
-        const slides = document.querySelectorAll(".slide");
-        
-        function showSlide(index) {
-          slides.forEach((slide, i) => {
-            slide.style.display = i === index ? "block" : "none";
-            slide.style.opacity = i === index ? "1" : "0";
-          });
-        }
-        
-        function changeSlide(direction) {
-          slideIndex = (slideIndex + direction + slides.length) % slides.length;
-          showSlide(slideIndex);
-        }
-        
-        function autoSlide() {
-          changeSlide(1);
-          setTimeout(autoSlide, 3000);
-        }
-        
-        autoSlide();
-      </script>
+</style>
+
+
+
 
     <!-- Booking Section -->
     <section id="booking">
@@ -431,9 +511,83 @@ nav a {
     </section>
   </main>
 
+    <!-- Customer Reviews Section -->
+    <section id="reviews">
+      <h2>Customer Reviews</h2>
+  
+      <!-- Review Form -->
+      <div class="review-form">
+      <h3>Leave a Review</h3>
+      <form id="reviewForm">
+          <label for="name">Name:</label>
+          <input type="text" id="name" required>
+  
+      <!-- Star Rating Widget -->
+      <div class="star-rating">
+        <span data-value="1">&#9733;</span>
+        <span data-value="2">&#9733;</span>
+        <span data-value="3">&#9733;</span>
+        <span data-value="4">&#9733;</span>
+        <span data-value="5">&#9733;</span>
+      </div>
+      <input type="hidden" id="ratingValue" value="0">
+
+  
+          <label for="review">Review:</label>
+          <textarea id="review" required></textarea>
+  
+          <button type="submit">Submit Review</button>
+      </form>
+  
+      <p id="message"></p>
+      </div>
+  
+      <!-- Display Reviews -->
+      <div id="reviewsContainer">
+      <h3>Recent Reviews</h3>
+      <div id="reviewList"></div>
+      </div>
+  </section>
+
+<!--Script for reviews-->
+  <script>
+    const stars = document.querySelectorAll('.star-rating span');
+    const ratingValue = document.getElementById('ratingValue');
+  
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const rating = star.getAttribute('data-value');
+        ratingValue.value = rating;
+        updateStars(rating);
+      });
+  
+      star.addEventListener('mouseover', () => {
+        updateStars(star.getAttribute('data-value'));
+      });
+  
+      star.addEventListener('mouseout', () => {
+        updateStars(ratingValue.value);
+      });
+    });
+  
+    function updateStars(rating) {
+      stars.forEach(star => {
+        if (star.getAttribute('data-value') <= rating) {
+          star.classList.add('selected');
+        } else {
+          star.classList.remove('selected');
+        }
+      });
+    }
+  </script>
+  
+
+
+
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 S. All Rights Reserved.</p>
+    <p>&copy; 2025 Chris Serrano All Rights Reserved. Website made by Chris Currie, Cameron Farrel, and Bandhip Hanjra</p>
   </footer>
+  
 </body>
 </html>
